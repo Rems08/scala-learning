@@ -15,7 +15,7 @@ import scalafx.scene.Group
 object Main extends JFXApp3 {
 
   val particlesRadius: Int = 5
-  val numberOfParticles: Int = 100
+  val numberOfParticles: Int = 500
 
   override def start(): Unit = {
 
