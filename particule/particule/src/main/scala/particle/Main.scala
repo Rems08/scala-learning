@@ -28,14 +28,14 @@ object Main extends JFXApp3 {
       screenHeight
     )
 
-    // État initial du monde des particules
+    // Init of particles
     var particleWorld: ParticleWorld = ParticleWorld(
       initialParticles,
       screenWidth,
       screenHeight
     )
 
-    // Groupe qui contiendra toutes les formes
+    // Group that contains all shapes
     val root = new Group()
 
     stage = new PrimaryStage {
@@ -47,7 +47,6 @@ object Main extends JFXApp3 {
       }
     }
 
-    // Fonction pour mettre à jour l'affichage
     def updateDisplay(): Unit = {
       particleWorld = particleWorld.update()
       val shapes = particleWorld.drawParticles()
@@ -55,7 +54,6 @@ object Main extends JFXApp3 {
       shapes.foreach(shape => root.children.add(shape))
     }
 
-    // Timeline pour l'animation
     val timeline = new Timeline {
       keyFrames = List(
         KeyFrame(
@@ -66,10 +64,8 @@ object Main extends JFXApp3 {
       cycleCount = Indefinite
     }
 
-    // Affichage initial
     updateDisplay()
     
-    // Démarrage de l'animation
     timeline.play()
   }
 }
